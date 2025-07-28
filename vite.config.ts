@@ -33,11 +33,12 @@ export default defineConfig((configEnv) => {
       vueDevTools(),
       UnoCSS(),
       AutoImport({
-        resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+        resolvers: [ElementPlusResolver()],
         dts: 'src/typings/auto-imports.d.ts',
         imports: ['vue', 'vue-router', 'pinia'],
       }),
       Components({
+        dirs: ['src/components'],
         dts: 'src/typings/components.d.ts',
         resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
       }),
@@ -47,17 +48,18 @@ export default defineConfig((configEnv) => {
       preprocessorOptions: {
         scss: {
           // 全局注入变量文件（无需在每个组件中手动引入）
-          additionalData: `@use "@/styles/element/index.scss" as *;`,
+          additionalData: `@use "~/styles/element/index.scss" as *;`,
         },
       },
     },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '~': path.resolve(__dirname, 'src'),
       },
     },
     server: {
-      open: true,
+      // open: true,
       proxy: proxyConfig,
     },
   };

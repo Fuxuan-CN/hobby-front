@@ -1,6 +1,10 @@
+@use 'sass:map';
 /* 只需要重写你需要的即可 */
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
+    'default': (
+      // 默认色
+    ),
     'primary': (
       // 主色
     ),
@@ -16,5 +20,43 @@
     'error': (
       // 错误色
     ),
+  ),
+  $bg-color: (
+    'overlay': '#3d3d3e',
+  ),
+  $border-color: (
+    'light': #3d3d3e,
   )
 );
+
+$text-color: (
+  'primary': #303030,
+);
+
+$bg-color: (
+  '': #000,
+  'page': linear-gradient(to bottom right, #2f2a33, #101f2d),
+  'overlay': #000,
+);
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: map.get($bg-color, 'page');
+  color: map.get($text-color, 'primary');
+
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hobby-兴趣群聊</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #2f2a33, #101f2d);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .brand {
+        text-align: center;
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards 0.3s;
+      }
+
+      .brand-logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(8px);
+      }
+
+      .brand-logo::after {
+        content: '';
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+      }
+
+      .brand-name {
+        /* 文字基础样式 */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+
+        /* 文字渐变效果 */
+        background: linear-gradient(135deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        /* 文字阴影 - 创造立体感 */
+        text-shadow:
+          1px 1px 3px rgba(0, 0, 0, 0.2),
+          3px 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* 过渡动画 */
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      /* 字母特殊处理 */
+      .brand-name:nth-child(1) {
+        /* H */
+        display: inline-block;
+      }
+
+      .brand-name:nth-child(3) {
+        /* b */
+        display: inline-block;
+      }
+
+      .brand-tagline {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 0.5rem;
+        letter-spacing: 0.3px;
+        animation: pulse 4s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.7;
+          letter-spacing: 0.3px;
+        }
+        50% {
+          opacity: 1;
+          letter-spacing: 8px;
+          color: rgba(7, 117, 172, 0.9);
+        }
+      }
+
+      .loader {
+        width: 180px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+        opacity: 0;
+        animation: fadeIn 0.5s forwards 0.8s;
+      }
+
+      .loader::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 100%;
+        background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+        border-radius: 2px;
+        animation: load 1.5s infinite ease-in-out;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.4);
+        opacity: 0;
+        animation: fadeIn 1s forwards 1s;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes load {
+        0% {
+          left: -40%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="brand">
+      <div class="brand-logo"></div>
+      <div class="brand-name">Hobby</div>
+      <div class="brand-tagline">以兴趣为桥，连万千知己</div>
+    </div>
+
+    <div class="loader"></div>
+
+    <div class="footer">Version 1.0.0 • 加载资源中...</div>
+  </body>
+</html>
