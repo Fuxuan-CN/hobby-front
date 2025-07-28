@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* prettier-ignore */
 /* oxlint-disable */
 // biome-ignore lint: disable
@@ -12,13 +11,13 @@ import type {
   AutoRouterSingleView,
   RawRouteComponent,
   RouteFileKey,
-  RouteLayoutKey
+  RouteLayoutKey,
 } from '@elegant-router/types';
 
 export function transformToVueRoutes(
   routes: AutoRouterRoute[],
   layouts: Record<RouteLayoutKey, RawRouteComponent>,
-  views: Record<RouteFileKey, RawRouteComponent>
+  views: Record<RouteFileKey, RawRouteComponent>,
 ) {
   const { redirects, groupedRoutes } = getFormattedRoutes(routes);
 
@@ -28,14 +27,14 @@ export function transformToVueRoutes(
     const layoutRoute: RouteRecordRaw = {
       path: `/${layout}-layout`,
       component: layouts[layout],
-      children: items.map(item => {
+      children: items.map((item) => {
         const { layout: _, component, ...rest } = item;
 
         return {
           component: views[component],
-          ...rest
+          ...rest,
         };
-      })
+      }),
     };
 
     vueRoutes.push(layoutRoute);
@@ -48,7 +47,7 @@ function getFormattedRoutes(routes: AutoRouterRoute[]) {
   const groupedRoutes = new Map<RouteLayoutKey, AutoRouterSingleView[]>();
   const redirects: AutoRouterRedirect[] = [];
 
-  routes.forEach(route => {
+  routes.forEach((route) => {
     if (isAutoRouterRedirect(route)) {
       redirects.push(route);
       return;
@@ -61,7 +60,7 @@ function getFormattedRoutes(routes: AutoRouterRoute[]) {
 
   return {
     redirects,
-    groupedRoutes
+    groupedRoutes,
   };
 }
 

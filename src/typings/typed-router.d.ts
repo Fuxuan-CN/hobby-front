@@ -8,27 +8,39 @@
 
 export {}
 
-declare module "vue-router" {
-  type RouteNamedMap = import("vue-router/auto-routes").RouteNamedMap;
+declare module 'vue-router' {
+  type RouteNamedMap = import('vue-router/auto-routes').RouteNamedMap;
 
   export interface TypesConfig {
     RouteNamedMap: RouteNamedMap;
   }
 }
 
-declare module "vue-router/auto-routes" {
-  import type { RouteParamsRawGeneric, RouteParamsGeneric, RouteMeta, RouteRecordInfo, ParamValue, ParamValueZeroOrOne } from "vue-router";
+declare module 'vue-router/auto-routes' {
+  import type {
+    RouteParamsRawGeneric,
+    RouteParamsGeneric,
+    RouteMeta,
+    RouteRecordInfo,
+    ParamValue,
+    ParamValueZeroOrOne,
+  } from 'vue-router';
 
   /**
    * route named map
-  */
+   */
   export interface RouteNamedMap {
-    "Root": RouteRecordInfo<"Root", "/", Record<never, never>, Record<never, never>>;
-    "NotFound": RouteRecordInfo<"NotFound", "/:pathMatch(.*)*", Record<never, never>, Record<never, never>>;
-    "403": RouteRecordInfo<"403", "/403", Record<never, never>, Record<never, never>>;
-    "404": RouteRecordInfo<"404", "/404", Record<never, never>, Record<never, never>>;
-    "500": RouteRecordInfo<"500", "/500", Record<never, never>, Record<never, never>>;
-    "Home": RouteRecordInfo<"Home", "/home", Record<never, never>, Record<never, never>>;
-    "Login": RouteRecordInfo<"Login", "/login", Record<never, never>, Record<never, never>>
+    Root: RouteRecordInfo<'Root', '/', Record<never, never>, Record<never, never>>;
+    NotFound: RouteRecordInfo<
+      'NotFound',
+      '/:pathMatch(.*)*',
+      Record<never, never>,
+      Record<never, never>
+    >;
+    '403': RouteRecordInfo<'403', '/403', Record<never, never>, Record<never, never>>;
+    '404': RouteRecordInfo<'404', '/404', Record<never, never>, Record<never, never>>;
+    '500': RouteRecordInfo<'500', '/500', Record<never, never>, Record<never, never>>;
+    Home: RouteRecordInfo<'Home', '/home', Record<never, never>, Record<never, never>>;
+    Login: RouteRecordInfo<'Login', '/login', Record<never, never>, Record<never, never>>;
   }
 }

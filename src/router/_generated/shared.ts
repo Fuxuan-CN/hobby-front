@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* prettier-ignore */
 /* oxlint-disable */
 // biome-ignore lint: disable
@@ -8,13 +7,13 @@
 import type { RouteKey, RoutePathMap } from '@elegant-router/types';
 
 const routePathMap: RoutePathMap = {
-  "Root": "/",
-  "NotFound": "/:pathMatch(.*)*",
-  "403": "/403",
-  "404": "/404",
-  "500": "/500",
-  "Home": "/home",
-  "Login": "/login",
+  Root: '/',
+  NotFound: '/:pathMatch(.*)*',
+  '403': '/403',
+  '404': '/404',
+  '500': '/500',
+  Home: '/home',
+  Login: '/login',
 };
 
 export function getRoutePath(key: RouteKey) {

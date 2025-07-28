@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* prettier-ignore */
 /* oxlint-disable */
 // biome-ignore lint: disable
@@ -48,5 +47,5 @@ export const routes: AutoRouterRoute[] = [
     path: '/login',
     layout: 'base',
     component: 'Login',
-  }
+  },
 ];
