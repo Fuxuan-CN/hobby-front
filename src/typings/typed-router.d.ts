@@ -42,5 +42,6 @@ declare module 'vue-router/auto-routes' {
     '500': RouteRecordInfo<'500', '/500', Record<never, never>, Record<never, never>>;
     Home: RouteRecordInfo<'Home', '/home', Record<never, never>, Record<never, never>>;
     Login: RouteRecordInfo<'Login', '/login', Record<never, never>, Record<never, never>>;
+    Test: RouteRecordInfo<'Test', '/test', Record<never, never>, Record<never, never>>;
   }
 }

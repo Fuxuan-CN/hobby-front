@@ -14,6 +14,7 @@ const routePathMap: RoutePathMap = {
   '500': '/500',
   Home: '/home',
   Login: '/login',
+  Test: '/test',
 };
 
 export function getRoutePath(key: RouteKey) {

@@ -1,1 +1,2 @@
-export * from './windowUtils.ts';
+export * from './theme.ts';
+export * from './window.ts';

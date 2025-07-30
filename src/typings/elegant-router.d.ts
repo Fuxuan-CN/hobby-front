@@ -30,6 +30,7 @@ declare module "@elegant-router/types" {
     "500": "/500";
     "Home": "/home";
     "Login": "/login";
+    "Test": "/test";
   };
 
   /**

@@ -1,8 +1,7 @@
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
+import { invoke } from '@tauri-apps/api/core';
 import '@unocss/reset/sanitize/assets.css';
 import '@unocss/reset/sanitize/sanitize.css';
-// import 'element-plus/theme-chalk/dark/css-vars.css';
-import { invoke } from '@tauri-apps/api/core';
 import 'virtual:uno.css';
 import { createApp } from 'vue';
 import App from './App.vue';

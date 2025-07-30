@@ -17,4 +17,5 @@ export const views: Record<RouteFileKey, RawRouteComponent> = {
   500: () => import('D:/project/front/hobby-front/src/views/500/index.vue'),
   Home: () => import('D:/project/front/hobby-front/src/views/home/index.vue'),
   Login: () => import('D:/project/front/hobby-front/src/views/login/index.vue'),
+  Test: () => import('D:/project/front/hobby-front/src/views/test/index.vue'),
 };

@@ -48,4 +48,10 @@ export const routes: AutoRouterRoute[] = [
     layout: 'base',
     component: 'Login',
   },
+  {
+    name: 'Test',
+    path: '/test',
+    layout: 'base',
+    component: 'Test',
+  },
 ];
