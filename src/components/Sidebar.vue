@@ -1,7 +1,10 @@
 <template>
   <!-- 侧边栏 -->
   <div
-    class="sidebar w-full h-full flex-shrink-0 bg-[#303030] flex flex-col items-center py-18px px-10px"
+    class="sidebar w-full h-full flex-shrink-0 flex flex-col items-center py-18px px-10px"
+    :style="{
+      backgroundColor: sidebarConfig.backgroundColor,
+    }"
   >
     <!-- logo区域 -->
     <div class="logo">
@@ -22,7 +25,8 @@
         class="!border-none"
         :collapse="false"
         background-color="transparent"
-        text-color="#ffffffff"
+        :text-color="sidebarConfig.iconColor"
+        :active-text-color="sidebarConfig.iconActiveColor"
       >
         <!-- 消息 -->
         <ElMenuItem index="1" class="!px-0 !w-48px !h-48px rounded-10px" @click="handleClick">
@@ -50,31 +54,15 @@
           default-active="1"
           background-color="#303030"
           text-color="#ffffffff"
-          class="box-menu !border-none w-full"
+          class="box-menu !border-none w-full user-select-none"
         >
-          <ElMenuItem index="1" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><PieChart /></ElIcon>
-            <span class="ml-4px fw-500">超级调色盘</span>
-          </ElMenuItem>
-          <ElMenuItem index="2" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><Bottom /></ElIcon>
-            <span class="ml-4px fw-500">导入历史消息</span>
-          </ElMenuItem>
-          <ElMenuItem index="3" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><UploadFilled /></ElIcon>
-            <span class="ml-4px fw-500">聊天记录迁移与备份</span>
-          </ElMenuItem>
-          <ElMenuItem index="4" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><Setting /></ElIcon>
-            <span class="ml-4px fw-500">设置</span>
-          </ElMenuItem>
-          <ElMenuItem index="5" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><Warning /></ElIcon>
-            <span class="ml-4px fw-500">关于</span>
-          </ElMenuItem>
-          <ElMenuItem index="6" class="!h-28px rounded-10px !px-0">
-            <ElIcon :size="14"><SwitchButton /></ElIcon>
-            <span class="ml-4px fw-500">退出账号</span>
+          <ElMenuItem
+            v-for="item in menuList"
+            :index="item.index"
+            class="!h-28px rounded-10px !px-0"
+          >
+            <ElIcon :size="14"><component :is="item.icon" /></ElIcon>
+            <span class="ml-4px fw-500">{{ item.label }}</span>
           </ElMenuItem>
         </ElMenu>
         <template #reference>
@@ -86,10 +74,45 @@
 </template>
 
 <script setup lang="ts">
+import { defaultThemeSetting } from '@/theme/setting';
 import type { MenuItemRegistered } from 'element-plus';
+
+const sidebarConfig = defaultThemeSetting.colors.sidebar;
 
 const activeIndex = ref<string>('1');
 
+const menuList = [
+  {
+    index: '1',
+    label: '超级调色盘',
+    icon: 'PieChart',
+  },
+  {
+    index: '2',
+    label: '导入历史消息',
+    icon: 'Bottom',
+  },
+  {
+    index: '3',
+    label: '聊天记录迁移与备份',
+    icon: 'UploadFilled',
+  },
+  {
+    index: '4',
+    label: '设置',
+    icon: 'Setting',
+  },
+  {
+    index: '5',
+    label: '关于',
+    icon: 'Warning',
+  },
+  {
+    index: '6',
+    label: '退出账号',
+    icon: 'SwitchButton',
+  },
+];
 const handleClick = (item: MenuItemRegistered) => {
   activeIndex.value = item.index;
 };
@@ -140,5 +163,9 @@ const handleClick = (item: MenuItemRegistered) => {
 
 .el-popper__arrow {
   background-color: red;
+}
+
+.user-select-none {
+  user-select: none;
 }
 </style>

@@ -62,17 +62,50 @@ declare namespace App {
       | ColorLinearGradient
       | ColorRadialGradient;
 
+    interface BackgroundImage {
+      url: string; // 背景图URL
+      repeat?: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat'; // 背景重复方式
+      size?: 'auto' | 'cover' | 'contain' | `${number}px` | `${number}%`; // 背景大小
+      position?:
+        | 'left top'
+        | 'left center'
+        | 'left bottom'
+        | 'center top'
+        | 'center center'
+        | 'center bottom'
+        | 'right top'
+        | 'right center'
+        | 'right bottom'
+        | `${number}px ${number}px`
+        | `${number}% ${number}%`; // 背景位置
+      attachment?: 'scroll' | 'fixed' | 'local'; // 背景附着方式
+      opacity?: number; // 背景图透明度 (0-1)
+    }
+
     interface SidebarColors {
       backgroundColor: Color; // 背景色
+      iconColor: Color; // 图标色
+      iconActiveColor: Color; // 激活图标色
     }
 
     interface SliderColors {
+      backgroundColor: Color; // 背景色
       thumbColor: Color; // 滑块色
+      thumbHoverColor: Color; // 滑块悬停色
       trackColor: Color; // 轨道色
     }
 
     interface ChatListColors {
+      searchBar: {
+        backgroundColor: Color; // 搜索栏背景色
+        innerBackgroundColor: Color; // 搜索栏内部背景色
+        textColor: Color; // 搜索栏文字色
+        placeholderColor: Color; // 搜索栏占位符色
+        buttonBackgroundColor: Color; // 搜索栏按钮背景色
+        buttonTextColor: Color; // 搜索栏按钮文字色
+      };
       backgroundColor: Color; // 背景色
+      itemColor: Color; // 列表项背景色
       itemHoverColor: Color; // 鼠标悬停背景色
       itemActiveColor: Color; // 选中背景色
       unreadTag: {
@@ -87,6 +120,8 @@ declare namespace App {
     interface HeaderColors {
       backgroundColor: Color; // 背景色
       textColor: Color; // 文字色 比如标题
+      iconColor: Color; // 图标色
+      hoverColor: Color; // 图标悬停色
     }
     interface SelfBubbleColors {
       backgroundColor: Color; // 自己的气泡背景色
@@ -105,7 +140,7 @@ declare namespace App {
 
     interface ToolbarColors {
       iconColor: Color; // 工具栏图标色
-      iconActiveColor: Color; // 工具栏图标激活色
+      iconHoverColor: Color; // 工具栏图标悬停色
     }
 
     interface InputBoxColors {
@@ -116,12 +151,11 @@ declare namespace App {
       clearButtonTextColor: Color;
       sendButtonColor: Color; // 发送按钮色
       sendButtonTextColor: Color; // 发送按钮文本色
-      sendButtonDisabledColor: Color; // 发送按钮禁用色
-      sendButtonDisabledTextColor: Color; // 发送按钮禁用文本色
       toolBar: ToolbarColors; // 工具栏色
     }
 
     interface ContentColors {
+      backgroundImage?: BackgroundImage; // 背景图片
       backgroundColor: Color; // 消息内容背景色
       header: HeaderColors; // 内容头部
       bubble: BubbleColors; // 内容气泡

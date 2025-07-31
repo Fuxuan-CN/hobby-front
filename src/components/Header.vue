@@ -1,6 +1,18 @@
 <template>
-  <div data-tauri-drag-region class="titlebar">
-    <div id="stage-button">
+  <div
+    data-tauri-drag-region
+    class="system-bar"
+    :style="{ backgroundColor: headerConfig.backgroundColor }"
+  >
+    <!-- 按钮区域 -->
+    <div
+      id="stage-button"
+      :style="{
+        '--icon-color': headerConfig.iconColor,
+        '--hover-color': headerConfig.hoverColor,
+      }"
+      class="flex-shrink-0"
+    >
       <!-- 最小化按钮 -->
       <button class="min" @click="minimize">
         <ElIcon><SemiSelect /></ElIcon>
@@ -15,11 +27,24 @@
         <ElIcon><Close /></ElIcon>
       </button>
     </div>
+
+    <!-- 标题区域-->
+    <div class="title" :style="{ color: headerConfig.textColor }">
+      {{ title }}
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { defaultThemeSetting } from '@/theme/setting';
 import { closeWindow, exitFullscreen, minimizeWindow, toggleFullscreen } from '@/utils';
+import { ref, watch } from 'vue';
+
+defineProps<{
+  title: string;
+}>();
+
+const headerConfig = defaultThemeSetting.colors.content.header;
 
 const isMaximized = ref(false);
 watch(
@@ -46,28 +71,26 @@ function close() {
 }
 </script>
 
-<style scoped lang="scss">
-.titlebar {
+<style scoped>
+.system-bar {
   display: flex;
-  flex-direction: row;
-  height: 32px;
+  flex-direction: column;
   user-select: none;
   width: 100%;
-  height: 100%;
+  box-sizing: border-box;
 }
+
 #stage-button {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  /*在 Flexbox 中，margin-left: auto; 会将元素推到其容器的末尾，而 margin-right: 0; 在 Flexbox 中不会产生相同的效果。*/
-  margin-left: auto;
+  justify-content: flex-end; /* 按钮靠右显示 */
 }
 
 #stage-button button {
   border: none;
   outline: none;
   cursor: default;
-  background-color: inherit;
+  background-color: transparent;
 }
 
 .min,
@@ -75,15 +98,25 @@ function close() {
 .close {
   width: 32px;
   height: 32px;
-  color: #fff;
+  color: var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 #stage-button .min:hover,
 #stage-button .max:hover {
-  background: #2f3442;
+  background: var(--hover-color);
   transition: background 0.18s;
 }
+
 #stage-button .close:hover {
   background: #c42b1c;
   transition: background 0.18s;
+}
+
+.title {
+  margin-left: 18px;
+  margin-bottom: 8px;
 }
 </style>

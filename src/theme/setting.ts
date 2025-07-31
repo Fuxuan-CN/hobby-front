@@ -8,9 +8,20 @@ export const defaultThemeSetting: App.Theme.ThemeSetting = {
   colors: {
     sidebar: {
       backgroundColor: '#303030',
+      iconColor: '#ffffff',
+      iconActiveColor: '#68b4db',
     },
     chatList: {
-      backgroundColor: '#1b1b1b',
+      searchBar: {
+        backgroundColor: '#222530',
+        innerBackgroundColor: '#1b1b1b',
+        textColor: '#ffffff',
+        placeholderColor: '#6d6f72',
+        buttonBackgroundColor: '#282828',
+        buttonTextColor: '#c9c9c9',
+      },
+      backgroundColor: '#222530',
+      itemColor: '#222530',
       itemHoverColor: '#2d2d2d',
       itemActiveColor: '#2d2d2d',
       unreadTag: {
@@ -22,7 +33,9 @@ export const defaultThemeSetting: App.Theme.ThemeSetting = {
       timeColor: '#a19f95',
     },
     slider: {
-      thumbColor: '#A2ACB0',
+      backgroundColor: 'transparent',
+      thumbColor: 'rgba(120, 120, 120, 0.25)',
+      thumbHoverColor: 'rgba(120, 120, 120, 0.45)',
       trackColor: 'transparent',
     },
     content: {
@@ -30,6 +43,8 @@ export const defaultThemeSetting: App.Theme.ThemeSetting = {
       header: {
         backgroundColor: 'transparent',
         textColor: '#ffffff',
+        iconColor: '#ffffff',
+        hoverColor: '#2f3442',
       },
       bubble: {
         self: {
@@ -49,11 +64,9 @@ export const defaultThemeSetting: App.Theme.ThemeSetting = {
         clearButtonTextColor: '#ffffff',
         sendButtonColor: '#409EFF',
         sendButtonTextColor: '#ffffff',
-        sendButtonDisabledColor: '#a0cfff',
-        sendButtonDisabledTextColor: '#f2f9ff',
         toolBar: {
           iconColor: '#656a73',
-          iconActiveColor: '#ffffff',
+          iconHoverColor: '#0066cc',
         },
       },
     },

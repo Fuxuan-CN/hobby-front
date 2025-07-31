@@ -9,6 +9,7 @@ export {};
 declare module 'vue' {
   export interface GlobalComponents {
     ChatInput: typeof import('./../components/ChatInput.vue')['default']
+    ChatList: typeof import('./../components/ChatList.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
