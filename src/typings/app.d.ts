@@ -139,6 +139,7 @@ declare namespace App {
     }
 
     interface ToolbarColors {
+      backgroundColor: Color; // 工具栏背景色
       iconColor: Color; // 工具栏图标色
       iconHoverColor: Color; // 工具栏图标悬停色
     }

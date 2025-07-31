@@ -3,7 +3,7 @@
   <div
     class="sidebar w-full h-full flex-shrink-0 flex flex-col items-center py-18px px-10px"
     :style="{
-      backgroundColor: sidebarConfig.backgroundColor,
+      background: sidebarConfig.backgroundColor,
     }"
   >
     <!-- logo区域 -->
@@ -66,7 +66,7 @@
           </ElMenuItem>
         </ElMenu>
         <template #reference>
-          <el-icon color="#ffffffff"><More /></el-icon>
+          <el-icon :color="sidebarConfig.iconColor"><More /></el-icon>
         </template>
       </ElPopover>
     </div>

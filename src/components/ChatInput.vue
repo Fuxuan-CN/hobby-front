@@ -1,6 +1,6 @@
 <template>
   <div
-    class="chat-input-container border-t min-h-200px"
+    class="chat-input-container border-t max-h-350px"
     :style="{
       '--text-color': inputBoxConfig.textColor,
       '--placeholder-color': inputBoxConfig.placeholderColor,
@@ -10,6 +10,7 @@
     <div
       class="flex items-center gap-1 px-2 py-1"
       :style="{
+        background: inputBoxConfig.backgroundColor,
         '--icon-color': inputBoxConfig.toolBar.iconColor,
         '--icon-hover-color': inputBoxConfig.toolBar.iconHoverColor,
       }"
@@ -72,18 +73,23 @@
     </div>
 
     <!-- 输入区域 -->
-    <div class="relative mt-1 h-200px" :style="{ backgroundColor: inputBoxConfig.backgroundColor }">
+    <div class="relative" :style="{ background: inputBoxConfig.backgroundColor }">
       <ElInput
         v-model="message"
         type="textarea"
         placeholder="请输入消息..."
         class="focus:border-primary chat-input"
-        input-style="background-color: transparent; border: none; outline: none;box-shadow: none;"
+        input-style="background-color: transparent; border: none; outline: none;box-shadow: none;height: 120px;"
       />
     </div>
 
     <!-- 底部操作栏 -->
-    <div class="flex items-center justify-between p-10px">
+    <div
+      class="flex items-center justify-between p-10px"
+      :style="{
+        background: inputBoxConfig.backgroundColor,
+      }"
+    >
       <div class="text-sm" :style="{ color: inputBoxConfig.placeholderColor }">
         {{ messageLength }}/2000
       </div>
@@ -92,7 +98,7 @@
           size="small"
           :style="{
             color: inputBoxConfig.clearButtonTextColor,
-            backgroundColor: inputBoxConfig.clearButtonColor,
+            background: inputBoxConfig.clearButtonColor,
           }"
           class="!border-none"
           @click="clearMessage"
@@ -106,7 +112,7 @@
           class="!border-none"
           :style="{
             color: inputBoxConfig.sendButtonTextColor,
-            backgroundColor: inputBoxConfig.sendButtonColor,
+            background: inputBoxConfig.sendButtonColor,
           }"
           @click="sendMessage"
         >

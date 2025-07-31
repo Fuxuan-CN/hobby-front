@@ -2,7 +2,7 @@
   <div
     data-tauri-drag-region
     class="system-bar"
-    :style="{ backgroundColor: headerConfig.backgroundColor }"
+    :style="{ background: headerConfig.backgroundColor }"
   >
     <!-- 按钮区域 -->
     <div
@@ -78,6 +78,7 @@ function close() {
   user-select: none;
   width: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 #stage-button {

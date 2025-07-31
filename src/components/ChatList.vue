@@ -3,17 +3,14 @@
   <div
     class="message w-248px h-full flex-shrink-0 flex flex-col"
     :style="{
-      backgroundColor: chatListConfig.backgroundColor,
+      background: chatListConfig.backgroundColor,
       '--slider-thumb-color': sliderConfig.thumbColor,
       '--slider-track-color': sliderConfig.trackColor,
       '--slider-thumb-hover-color': sliderConfig.thumbHoverColor,
       '--slider-background-color': sliderConfig.backgroundColor,
     }"
   >
-    <div
-      class="search px-12px"
-      :style="{ backgroundColor: chatListConfig.searchBar.backgroundColor }"
-    >
+    <div class="search px-12px" :style="{ background: chatListConfig.searchBar.backgroundColor }">
       <div class="flex items-center mb-12px mt-24px">
         <ElInput
           v-model="searchText"
@@ -21,7 +18,7 @@
           class="search-input"
           :input-style="{
             height: '24px',
-            backgroundColor: `transparent`,
+            background: `transparent`,
             '--inner-background-color': `${chatListConfig.searchBar.innerBackgroundColor}`,
           }"
           :style="{ '--placeholder-color': chatListConfig.searchBar.placeholderColor }"
@@ -50,7 +47,7 @@
           v-for="(item, index) in chatList"
           class="flex items-center px-16px py-12px border-none h-74px card user-select-none"
           :style="{
-            backgroundColor: chatListConfig.itemColor,
+            background: chatListConfig.itemColor,
             '--item-hover-color': chatListConfig.itemHoverColor,
             '--item-active-color': chatListConfig.itemActiveColor,
           }"
